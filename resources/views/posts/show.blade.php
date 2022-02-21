@@ -1,32 +1,16 @@
-@extends('common.master')
+@extends('common.article')
 
-@section('content')
-    <section class="hero  is-large  is-bold is-primary"  style="background: url('{{$post->img_url}}') no-repeat center center; background-size: cover;" >
-        <div class="hero-body">
-            <div class="container">
-                <p class="title is-2">{{$post->title}}</p>
-                <p class="subtitle is-3"></p>
+@section('title', $post->title)
 
-            </div>
+@section('background', $post->img_url)
+
+@section('section')
+    <div class="column is-full">
+        <h2 class="subtitle">Gepubliceerd op: {{ $post->published_at }}</h2>
+        <div class="content">
+            {!! $post->body !!}
         </div>
-    </section>
-
-    <section class="section">
-        <div class="container">
-            <div class="columns">
-
-                <div class="column is-12">
-
-                    <div class="content">
-                        <p>Gepubliceerd op: {{ $post->published_at }}</p>
-
-                        {!! $post->body !!}
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </section>
+    </div>
 @endsection
 
 
